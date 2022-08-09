@@ -12,7 +12,7 @@
 
 ?>
 
-<?php get_template_part( 'template-parts/wpbase', 'footer' ); ?>
+<?php do_action('wpbase_do_footer'); ?>
 
 </div><!-- #page -->
 

@@ -56,3 +56,100 @@ function add_menu_list_item_class($classes, $item, $args)
 }
 add_filter('nav_menu_css_class', 'add_menu_list_item_class', 1, 3);
 
+
+
+/**
+ * shortcode-latest posts
+ */
+add_shortcode('latest_posts', 'get_latest_posts');
+function get_latest_posts($atts)
+{
+    $atts = shortcode_atts([
+        'category_name' => 'gallery',
+    ], $atts, 'get_latest_posts');
+
+    $query = new WP_Query([
+        'post_status' => "published",
+        'posts_per_page' => 5,
+        'category_name' => $atts['category_name'],
+    ]);
+    ob_start();
+
+    if ($query->have_posts()) :
+        echo '<article>';
+        while ($query->have_posts()) :
+            $query->the_post();
+
+            echo get_the_date();
+            echo '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' .
+                '<h4>' . get_the_title() . '</h4>' . '
+            </a>';
+
+        endwhile;
+        echo '</article>';
+    endif;
+
+    wp_reset_postdata();
+    return ob_get_clean();
+}
+
+
+/**
+ * wpbase - add class, if sidebar exist in template
+ */
+function wp_body_classes_has_sidebar($classes)
+{
+    $classes[] = 'has-sidebar';
+    return $classes;
+}
+
+/**
+ * do_action
+ */
+// add_action('wpbase_do_header', 'wpbase_do_header');
+function wpbase_do_header()
+{
+    get_template_part('template-parts/wpbase', 'header');
+}
+
+// add_action('wpbase_do_footer', 'wpbase_do_footer');
+function wpbase_do_footer()
+{
+    get_template_part('template-parts/wpbase', 'footer');
+}
+
+add_action('wpbase_do_before_content', 'wpbase_do_before_content');
+function wpbase_do_before_content()
+{
+    if (is_front_page()) {
+        get_template_part('template-parts/masthead');
+
+        get_template_part('template-yayasan/content', 'intro');
+    }
+}
+
+add_action('wpbase_template_actions', function () {
+
+    if (is_singular() || is_archive()) {
+        if (is_page()) {
+            return;
+        }
+        add_filter('body_class', 'wp_body_classes_has_sidebar', 1);
+    }
+    // template has sidebar
+});
+
+/**
+ * template_yayasan
+ */
+add_action('wpbase_do_header', 'yayasan_do_header');
+function yayasan_do_header()
+{
+    get_template_part('template-yayasan/header');
+}
+
+add_action('wpbase_do_footer', 'yayasan_do_footer');
+function yayasan_do_footer()
+{
+    get_template_part('template-yayasan/footer');
+}

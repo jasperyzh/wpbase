@@ -226,6 +226,8 @@ require get_template_directory() . '/inc/wpbase-contactform.php';
 add_action('wp_footer', 'add_widget_popup_modal', 15);
 function add_widget_popup_modal()
 {
+	// tips: elementor-section-stretch will be affected if widget enabled
+
 	// apply to frontpage only
 	if (!is_active_sidebar('popup-modal') || !is_front_page()) {
 		return;
@@ -274,3 +276,5 @@ function add_widget_toast_notification()
 
 <?php
 }
+
+

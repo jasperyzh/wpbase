@@ -24,24 +24,23 @@
 
 // wpbas3
 @import "bootstrap/scss/bootstrap";
+
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// @import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css";
+
 @import "./_s-utilities.scss";
+
+img {
+	max-width: 100%;
+	height: auto;
+}
 
 // sticky-footer
 html,
 body,
-#page.site {
+body #page.site {
 	height: 100%;
-}
-#page.site {
-	display: flex;
-	flex-direction: column;
-
-	main#primary {
-		flex-shrink: 0;
-	}
-	.site-footer {
-		margin-top: auto;
-	}
 }
 
 // wpadmin-bar
@@ -54,8 +53,49 @@ body.admin-bar {
 	}
 }
 
+// layout via cssgrid
+body {
+	& > .site {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: 1fr minmax(300px, 1024px) 1fr;
+		grid-template-rows: auto 1fr auto;
+	}
+
+	&.has-sidebar > .site {
+		grid-template-columns: 1fr minmax(300px, 1024px) auto 1fr;
+
+		@include media-breakpoint-down(lg) {
+			grid-template-columns: 1fr minmax(300px, 1024px) 1fr;
+		}
+	}
+
+	& > .site > header {
+		grid-column: 2/-2;
+	}
+	& > .site > main {
+		grid-column: 2/3;
+	}
+	& > .site > aside {
+		grid-column: -2/-3;
+		inline-size: 300px;
+
+		// disable_sidebar
+		@include media-breakpoint-down(lg) {
+			display: none;
+		}
+	}
+	& > .site > footer {
+		grid-column: 1/ -1;
+	}
+
+	&.home > .site > main {
+		grid-column: 1/-1;
+	}
+}
+
 // page
-header.entry-header {
+/* header.entry-header {
 	padding: 1rem;
 	background-color: #fafafa;
 
@@ -63,9 +103,40 @@ header.entry-header {
 		max-width: 1200px;
 		margin-inline: auto;
 	}
+} */
+
+// search -card
+.card {
+	img {
+		aspect-ratio: 4/3;
+		object-fit: cover;
+		object-position: center;
+
+		width: 100%;
+		height: 100%;
+	}
 }
 
-.page .entry-content {
-	max-width: 1200px;
-	margin-inline: auto;
+// sidebar
+#secondary.widget-area {
+	outline: 1.25rem solid $secondary;
+	margin: 2rem;
+	padding: 1rem;
+}
+
+body.error404 {
+	main.site-main {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	main > .error-404.not-found {
+		text-align: center;
+		@include media-breakpoint-up(lg) {
+			display: inline-grid;
+			grid-template-columns: repeat(2, auto);
+			gap: 1rem;
+			text-align: initial;
+		}
+	}
 }

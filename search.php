@@ -7,6 +7,9 @@
  * @package Wpbase
  */
 
+// template has sidebar
+add_filter('body_class', 'wp_body_classes_has_sidebar', 1);
+
 get_header();
 ?>
 
