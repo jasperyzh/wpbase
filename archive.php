@@ -7,8 +7,6 @@
  * @package Wpbase
  */
 
-// template has sidebar
-do_action('wpbase_template_actions');
 
 get_header();
 ?>

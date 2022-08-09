@@ -22,6 +22,15 @@
 // Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 // */
 
+// yayasan
+$container-max-widths: (
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1440px
+);
+
 // wpbas3
 @import "bootstrap/scss/bootstrap";
 
@@ -34,6 +43,13 @@
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+// _s override
+.site-title,
+.site-description {
+	position: absolute;
+	clip: rect(1px, 1px, 1px, 1px);
 }
 
 // sticky-footer
@@ -53,20 +69,29 @@ body.admin-bar {
 	}
 }
 
-// layout via cssgrid
+// layout reference from genesis
+// default 'content';
+// return 'full-width-content';
+// return 'content-sidebar';
+// return 'sidebar-content';
+
+// return 'content-sidebar-sidebar';
+// return 'sidebar-sidebar-content';
+// return 'sidebar-content-sidebar';
 body {
 	& > .site {
 		display: grid;
-		gap: 1rem;
-		grid-template-columns: 1fr minmax(300px, 1024px) 1fr;
+		// gap: 1rem;
+		grid-template-columns: 1fr 1fr minmax(300px, 1024px) 1fr 1fr;
 		grid-template-rows: auto 1fr auto;
 	}
 
-	&.has-sidebar > .site {
+	&.content_sidebar > .site {
 		grid-template-columns: 1fr minmax(300px, 1024px) auto 1fr;
 
 		@include media-breakpoint-down(lg) {
-			grid-template-columns: 1fr minmax(300px, 1024px) 1fr;
+			// grid-template-columns: 1fr minmax(300px, 1024px) 1fr;
+			grid-template-columns: 1fr 1fr minmax(300px, 1024px) 1fr 1fr;
 		}
 	}
 
@@ -74,7 +99,7 @@ body {
 		grid-column: 2/-2;
 	}
 	& > .site > main {
-		grid-column: 2/3;
+		grid-column: 3 / -2;
 	}
 	& > .site > aside {
 		grid-column: -2/-3;
@@ -138,5 +163,53 @@ body.error404 {
 			gap: 1rem;
 			text-align: initial;
 		}
+	}
+}
+
+// nav_primary
+.menu-item-has-children {
+	.sub-menu {
+		list-style: none;
+	}
+	@include media-breakpoint-up(lg) {
+		position: relative;
+		.sub-menu {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			opacity: 0;
+
+			padding: 1rem;
+			visibility: hidden;
+
+			// hardcoded
+			background-color: #fff;
+			box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+
+			transition: opacity 0.3s ease;
+		}
+
+		.sub-menu a.nav-link.menu-item {
+			width: max-content;
+		}
+
+		&:hover .sub-menu {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+// page_banner
+.page_banner {
+	aspect-ratio: 5/1;
+	width: 100%;
+	grid-column: 1/-1;
+
+	& > img {
+		object-fit: cover;
+		object-position: center;
+		width: 100%;
+		height: 100%;
 	}
 }

@@ -1,8 +1,24 @@
 <header class="site-header navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img width="120" height="64" src="@/assets/placeholder/placeholder.png" alt="" />
-        </a>
+        <!-- <a class="navbar-brand" href="#">    -->
+        <!-- <img width="120" height="64" src="@/assets/placeholder/placeholder.png" alt="" /> -->
+        <?php
+        the_custom_logo();
+        if (is_front_page() && is_home()) :
+        ?>
+            <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+        <?php else : ?>
+            <p class="site-title mb-0"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
+        <?php
+        endif;
+        $wpbase_description = get_bloginfo('description', 'display');
+        if ($wpbase_description || is_customize_preview()) :
+        ?>
+            <p class="site-description mb-0"><?php echo $wpbase_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+                                                ?></p>
+        <?php endif; ?>
+
+        <!-- </a> -->
 
         <div class="row p-3">
             <nav class="nav menu__social justify-content-end d-none d-lg-flex">
@@ -11,6 +27,7 @@
                 <a class="nav-link" href="#"><i class="bi bi-linkedin"></i></a>
                 <a class="nav-link" href="#"><i class="bi bi-facebook"></i></a>
             </nav>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -23,26 +40,24 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Our Focus</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">The Good News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Grants</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Donations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
-                    </ul>
+
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location'  => 'primary',
+                            'menu_id'        => 'primary-menu',
+                            'menu_class'      => 'navbar-nav justify-content-end flex-grow-1',
+                            'container'         => "",
+                            'items_wrap'      => '<ul id="primary-menu-list" class="%2$s">%3$s</ul>',
+                            'fallback_cb'     => false,
+                            // custom parameter added thru functions-wpbas3.php
+                            'list_item_class'  => 'nav-item',
+                            'link_class'   => 'nav-link menu-item'
+                            //  nav-active
+                        )
+                    );
+                    ?>
+
                     <nav class="
                 nav
                 menu__social

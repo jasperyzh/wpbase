@@ -8,8 +8,6 @@
  * @package Wpbase
  */
 
- do_action('wpbase_template_actions');
-
 get_header();
 ?>
 

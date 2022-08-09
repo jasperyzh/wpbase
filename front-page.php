@@ -13,15 +13,11 @@
  * @package Wpbase
  */
 
-do_action('wpbase_template_actions');
-
 
 get_header();
 ?>
 
 <main id="primary" class="site-main">
-
-
 
     <?php
     do_action('wpbase_do_before_content');

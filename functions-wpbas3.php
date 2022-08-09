@@ -65,7 +65,7 @@ add_shortcode('latest_posts', 'get_latest_posts');
 function get_latest_posts($atts)
 {
     $atts = shortcode_atts([
-        'category_name' => 'gallery',
+        'category_name' => '',
     ], $atts, 'get_latest_posts');
 
     $query = new WP_Query([
@@ -93,13 +93,19 @@ function get_latest_posts($atts)
     return ob_get_clean();
 }
 
-
 /**
- * wpbase - add class, if sidebar exist in template
+ * declare layout
  */
-function wp_body_classes_has_sidebar($classes)
+add_filter('body_class', 'wp_body_classes_layout', 1);
+function wp_body_classes_layout($classes)
 {
-    $classes[] = 'has-sidebar';
+    if (is_front_page()) {
+        $classes[] = 'layout_full_width_content';
+    } else if (is_single() || is_archive()) {
+        $classes[] = 'layout_content_sidebar';
+    } else {
+        $classes[] = 'layout_content';
+    }
     return $classes;
 }
 
@@ -121,23 +127,15 @@ function wpbase_do_footer()
 add_action('wpbase_do_before_content', 'wpbase_do_before_content');
 function wpbase_do_before_content()
 {
+    // yayasan's
     if (is_front_page()) {
         get_template_part('template-parts/masthead');
 
         get_template_part('template-yayasan/content', 'intro');
+    } else if (!is_front_page() || is_page() || is_singular()) {
+        get_template_part('template-yayasan/page', 'banner');
     }
 }
-
-add_action('wpbase_template_actions', function () {
-
-    if (is_singular() || is_archive()) {
-        if (is_page()) {
-            return;
-        }
-        add_filter('body_class', 'wp_body_classes_has_sidebar', 1);
-    }
-    // template has sidebar
-});
 
 /**
  * template_yayasan
