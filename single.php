@@ -9,6 +9,9 @@
  */
 
 get_header();
+
+do_action('wpbase_do_before_content');
+
 ?>
 
 <main id="primary" class="site-main">
@@ -26,8 +29,8 @@ get_header();
 			)
 		);
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		/* if (comments_open() || get_comments_number()) :
+	// If comments are open or we have at least one comment, load up the comment template.
+	/* if (comments_open() || get_comments_number()) :
 			comments_template();
 		endif; */
 
@@ -38,4 +41,7 @@ get_header();
 
 <?php
 get_sidebar();
+
+do_action('wpbase_do_after_content');
+
 get_footer();

@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * enqueue_scripts
  * @since 220629
@@ -101,11 +102,12 @@ function wp_body_classes_layout($classes)
 {
     if (is_front_page()) {
         $classes[] = 'layout_full_width_content';
-    } else if (is_single() || is_archive()) {
+    } else if (is_single()) {
         $classes[] = 'layout_content_sidebar';
-    } else {
-        $classes[] = 'layout_content';
-    }
+    } 
+    // else if (is_archive()){
+
+    // }
     return $classes;
 }
 
@@ -132,7 +134,7 @@ function wpbase_do_before_content()
         get_template_part('template-parts/masthead');
 
         get_template_part('template-yayasan/content', 'intro');
-    } else if (!is_front_page() || is_page() || is_singular()) {
+    } else if (!is_front_page() || is_page() || is_singular() || is_single()) {
         get_template_part('template-yayasan/page', 'banner');
     }
 }

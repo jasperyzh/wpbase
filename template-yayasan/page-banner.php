@@ -2,6 +2,7 @@
 
 global $wp_query;
 $page_id = get_the_ID();
+
 if ($page_id) {
     $img_src = get_post_meta($page_id, '_page_banner', true);
     if (empty($img_src)) {

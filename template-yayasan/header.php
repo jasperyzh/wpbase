@@ -1,4 +1,4 @@
-<header class="site-header navbar navbar-expand-lg" aria-label="Offcanvas navbar large">
+<header class="site-header navbar navbar-expand-lg shadow-sm " aria-label="Offcanvas navbar large">
     <div class="container-fluid">
         <!-- <a class="navbar-brand" href="#">    -->
         <!-- <img width="120" height="64" src="@/assets/placeholder/placeholder.png" alt="" /> -->
@@ -20,13 +20,28 @@
 
         <!-- </a> -->
 
-        <div class="row p-3">
-            <nav class="nav menu__social justify-content-end d-none d-lg-flex">
-                <a class="nav-link" href="#"><i class="bi bi-facebook"></i></a>
-                <a class="nav-link" href="#"><i class="bi bi-instagram"></i></a>
-                <a class="nav-link" href="#"><i class="bi bi-linkedin"></i></a>
-                <a class="nav-link" href="#"><i class="bi bi-facebook"></i></a>
-            </nav>
+        <div class="row">
+
+            <?php
+            wp_nav_menu([
+                'theme_location'  => 'social',
+                'menu_id'        => 'social-media-menu',
+                'menu_class'      => 'nav menu__social justify-content-end d-none d-lg-flex',
+                'container'         => "",
+                'items_wrap'      => '<nav id="primary-social-menu" class="%2$s">%3$s</nav>',
+                'fallback_cb'     => false,
+                // custom parameter added thru functions-wpbas3.php
+                'list_item_class'  => 'nav-item',
+                'link_class'   => 'nav-link menu-item'
+                //  nav-active
+            ]);
+            // <!-- <nav class="nav menu__social justify-content-end d-none d-lg-flex">
+            //     <a class="nav-link" href="#"><i class="bi bi-facebook"></i></a>
+            //     <a class="nav-link" href="#"><i class="bi bi-instagram"></i></a>
+            //     <a class="nav-link" href="#"><i class="bi bi-linkedin"></i></a>
+            //     <a class="nav-link" href="#"><i class="bi bi-facebook"></i></a>
+            // </nav> -->
+            ?>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
                 <span class="navbar-toggler-icon"></span>
@@ -37,25 +52,23 @@
                     <h5 class="offcanvas-title" id="offcanvasNavbar2Label">
                         Explore
                     </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
 
                     <?php
-                    wp_nav_menu(
-                        array(
-                            'theme_location'  => 'primary',
-                            'menu_id'        => 'primary-menu',
-                            'menu_class'      => 'navbar-nav justify-content-end flex-grow-1',
-                            'container'         => "",
-                            'items_wrap'      => '<ul id="primary-menu-list" class="%2$s">%3$s</ul>',
-                            'fallback_cb'     => false,
-                            // custom parameter added thru functions-wpbas3.php
-                            'list_item_class'  => 'nav-item',
-                            'link_class'   => 'nav-link menu-item'
-                            //  nav-active
-                        )
-                    );
+                    wp_nav_menu([
+                        'theme_location'  => 'primary',
+                        'menu_id'        => 'primary-menu',
+                        'menu_class'      => 'navbar-nav justify-content-end flex-grow-1',
+                        'container'         => "",
+                        'items_wrap'      => '<ul id="primary-menu-list" class="%2$s">%3$s</ul>',
+                        'fallback_cb'     => false,
+                        // custom parameter added thru functions-wpbas3.php
+                        'list_item_class'  => 'nav-item',
+                        'link_class'   => 'nav-link menu-item'
+                        //  nav-active
+                    ]);
                     ?>
 
                     <nav class="
