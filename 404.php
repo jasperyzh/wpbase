@@ -20,7 +20,7 @@ get_header();
 
 		<div class="page-content">
 			<p class="mb-0 display-4">Sorry!</p>
-			<p class="lead"><?php esc_html_e('The Page You\'re Looking For Was Not Found', 'wpbase'); ?></p>
+			<p class="lead"><?php esc_html_e('The page you\'re looking for does not exist', 'wpbase'); ?></p>
 
 			<?php
 			// get_search_form();

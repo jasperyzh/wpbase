@@ -124,10 +124,14 @@ body .site {
 		position: fixed;
 		width: 100%;
 		background-color: var(--bg-white);
+		z-index: 10;
 	}
-	.site-main {
+	.site-header + * {
 		margin-top: clamp(59px, 8vw, 104px);
 	}
+	/* .site-main {
+		margin-top: clamp(59px, 8vw, 104px);
+	} */
 }
 
 // wpadmin-bar
@@ -153,7 +157,8 @@ body.admin-bar {
 	--main_sidebar_gap: 2rem;
 
 	display: grid;
-	grid-template-rows: auto 1fr auto;
+	// grid-template-rows: auto 1fr auto;
+	grid-template-rows: 1fr auto; // site_header_fixed
 	column-gap: clamp(0.6rem, 3%, 2rem);
 
 	// layout_content(default)
@@ -336,11 +341,24 @@ header.page-header,
 header.entry-header {
 	margin: 2rem auto;
 }
+
+.site-main > article.page {
+	margin-top: 3rem;
+	margin-bottom: 3rem;
+}
 // stylize entry-header
 /* margin-top: -3rem;
     background: white;
     width: fit-content;
     padding: 0.5rem 1rem; */
+
+/* 
+    margin-top: -3rem;
+    margin-left: -1rem;
+    background: white;
+    padding: 1rem;
+    margin-right: -1rem;
+	*/
 
 h1.page-title,
 h1.entry-title {

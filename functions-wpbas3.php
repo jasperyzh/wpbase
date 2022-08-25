@@ -104,52 +104,27 @@ function wp_body_classes_layout($classes)
         $classes[] = 'layout_full_width_content';
     } else if (is_single()) {
         $classes[] = 'layout_content_sidebar';
-    } 
-    // else if (is_archive()){
-
-    // }
+    }
     return $classes;
 }
 
 /**
  * do_action
  */
-// add_action('wpbase_do_header', 'wpbase_do_header');
+// add_action('wpbase_do_header', 'wpbase_do_header', 1);
 function wpbase_do_header()
 {
     get_template_part('template-parts/wpbase', 'header');
 }
 
-// add_action('wpbase_do_footer', 'wpbase_do_footer');
+// add_action('wpbase_do_footer', 'wpbase_do_footer', 1);
 function wpbase_do_footer()
 {
     get_template_part('template-parts/wpbase', 'footer');
 }
 
-add_action('wpbase_do_before_content', 'wpbase_do_before_content');
-function wpbase_do_before_content()
+// add_action('wpbase_do_after_content', 'wpbase_do_sidebar', 1);
+function wpbase_do_sidebar()
 {
-    // yayasan's
-    if (is_front_page()) {
-        get_template_part('template-parts/masthead');
-
-        get_template_part('template-yayasan/content', 'intro');
-    } else if (!is_front_page() || is_page() || is_singular() || is_single()) {
-        get_template_part('template-yayasan/page', 'banner');
-    }
-}
-
-/**
- * template_yayasan
- */
-add_action('wpbase_do_header', 'yayasan_do_header');
-function yayasan_do_header()
-{
-    get_template_part('template-yayasan/header');
-}
-
-add_action('wpbase_do_footer', 'yayasan_do_footer');
-function yayasan_do_footer()
-{
-    get_template_part('template-yayasan/footer');
+    get_sidebar();
 }

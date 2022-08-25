@@ -7,10 +7,10 @@
  * @package Wpbase
  */
 
-// template has sidebar
-add_filter('body_class', 'wp_body_classes_has_sidebar', 1);
-
 get_header();
+
+do_action('wpbase_do_before_content');
+
 ?>
 
 	<main id="primary" class="site-main">
@@ -52,5 +52,6 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
+do_action('wpbase_do_after_content');
+
 get_footer();

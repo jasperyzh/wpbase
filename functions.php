@@ -254,4 +254,6 @@ require get_template_directory() . '/inc/wpbase-contactform.php';
 
 require get_template_directory() . '/inc/wpbase-widgets.php';
 
-require get_template_directory() . '/inc/wpbase-sendmail.php';
+// require get_template_directory() . '/inc/wpbase-sendmail.php';
+
+require get_template_directory() . '/functions-yayasan.php';
