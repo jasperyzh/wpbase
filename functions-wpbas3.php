@@ -17,8 +17,8 @@ function wp_enqueue()
     $dev_url = "http://localhost:8080";
     $dev_vendor = $dev_url . '/js/chunk-vendors.js';
     $dev_js = $dev_url . '/js/app.js';
-    wp_enqueue_script('vue-vendors', $dev_vendor, array('jquery'), '', true);
-    wp_enqueue_script('vue-app', $dev_js, array('jquery'), '', true);
+    wp_enqueue_script('vue-vendors', $dev_vendor, ['jquery'], WPBASE_VERSION, true);
+    wp_enqueue_script('vue-app', $dev_js, ['jquery'], WPBASE_VERSION, true);
 
     // check if enqueue dev-files
     if (WP_DEBUG) {
@@ -28,9 +28,9 @@ function wp_enqueue()
     $list = 'enqueued';
     if (!wp_script_is($handle, $list)) {
         // production
-        wp_enqueue_script("vue-vendors", get_stylesheet_directory_uri() . "/dist/js/chunk-vendors.js", array("jquery"), "", true);
-        wp_enqueue_script("vue-app", get_stylesheet_directory_uri() . "/dist/js/app.js", array("jquery"), "", true);
-        wp_enqueue_style("vue-css", get_stylesheet_directory_uri() . "/dist/css/app.css");
+        wp_enqueue_script("vue-vendors", get_stylesheet_directory_uri() . "/dist/js/chunk-vendors.js", ["jquery"], WPBASE_VERSION, true);
+        wp_enqueue_script("vue-app", get_stylesheet_directory_uri() . "/dist/js/app.js", ["jquery"], WPBASE_VERSION, true);
+        wp_enqueue_style("vue-css", get_stylesheet_directory_uri() . "/dist/css/app.css", NULL, WPBASE_VERSION);
     }
 }
 

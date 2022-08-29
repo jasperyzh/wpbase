@@ -49,14 +49,12 @@ function wpbase_setup()
 	add_theme_support('post-thumbnails');
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus(
-		array(
-			'primary' => esc_html__('Primary', 'wpbase'),
-			'footer' => esc_html__('Footer', 'wpbase'),
-			'social' => esc_html__('Social', 'wpbase'),
-			'quick' => esc_html__('Quick', 'wpbase'),
-		)
-	);
+	register_nav_menus([
+		'primary' => esc_html__('Primary', 'wpbase'),
+		'footer' => esc_html__('Footer', 'wpbase'),
+		'social' => esc_html__('Social', 'wpbase'),
+		'quick' => esc_html__('Quick', 'wpbase'),
+	]);
 
 	/*
 		* Switch default core markup for search form, comment form, and comments
@@ -256,4 +254,9 @@ require get_template_directory() . '/inc/wpbase-widgets.php';
 
 // require get_template_directory() . '/inc/wpbase-sendmail.php';
 
+require get_template_directory() . '/inc/wpbase-hooks.php';
+
+/**
+ * yayasan_functions
+ */
 require get_template_directory() . '/functions-yayasan.php';
