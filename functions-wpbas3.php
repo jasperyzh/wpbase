@@ -95,6 +95,25 @@ function get_latest_posts($atts)
 }
 
 /**
+ * shortcode-add-template-parts
+ */
+
+add_shortcode('get_template_part', 'get_get_template_part');
+function get_get_template_part($atts)
+{
+    $atts = shortcode_atts([
+        'slug' => '',
+        'name' => '',
+        'args' => ''
+    ], $atts, 'get_template_part');
+
+    ob_start();
+    get_template_part($atts['slug'], $atts['name'], $atts['args']);
+
+    return ob_get_clean();
+}
+
+/**
  * declare layout
  */
 add_filter('body_class', 'wp_body_classes_layout', 1);

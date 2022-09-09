@@ -4,9 +4,15 @@
 add_shortcode('msg', 'func_msg_shortcode');
 function func_msg_shortcode($atts, $content)
 {
-    $atts = shortcode_atts([
+    extract(
+        shortcode_atts([
+            "type" => "information"
+        ], $atts, 'msg')
+    );
+
+  /*   $atts = shortcode_atts([
         "type" => "information"
-    ], $atts, 'msg');
+    ], $atts, 'msg'); */
 
     $content = do_shortcode($content); // allow nested shortcodes
 
@@ -14,6 +20,8 @@ function func_msg_shortcode($atts, $content)
 ?>
     <pre>helloworldmsg</pre>
     <?= $content ?>
+
+    <small style="color: red"><?= $type ?></small>
 <?php
     return ob_get_clean();
 }

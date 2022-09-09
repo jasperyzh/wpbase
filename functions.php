@@ -256,7 +256,13 @@ require get_template_directory() . '/inc/wpbase-widgets.php';
 
 require get_template_directory() . '/inc/wpbase-hooks.php';
 
+require get_template_directory() . '/inc/wpbase-optionspage.php';
+
+require get_template_directory() . '/inc/wpbase-api_helper.php';
+
+
 /**
  * yayasan_functions
  */
 require get_template_directory() . '/functions-yayasan.php';
+
