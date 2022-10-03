@@ -92,7 +92,7 @@ function yayasan_programmes_card($atts)
 /**
  * focus page - voice of inspiration
  */
-// add_shortcode('display__voice_of_inspiration', 'shortcode_focus_voice_inspiration');
+add_shortcode('display__voice_of_inspiration', 'shortcode_focus_voice_inspiration');
 function shortcode_focus_voice_inspiration($atts)
 {
     ob_start();
@@ -295,5 +295,21 @@ function yayasan_about_boards_trustees($atts)
 <?php
     endif;
     wp_reset_postdata();
+    return ob_get_clean();
+}
+
+add_shortcode('display__form_contact', 'yayasan_display__form_contact');
+function yayasan_display__form_contact()
+{
+    ob_start();
+    get_template_part('template-yayasan/display', 'form_contact');
+    return ob_get_clean();
+}
+
+add_shortcode('display__social_icon', 'yayasan_display__social_icon');
+function yayasan_display__social_icon()
+{
+    ob_start();
+    get_template_part('template-yayasan/display', 'social_icon');
     return ob_get_clean();
 }

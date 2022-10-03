@@ -163,30 +163,6 @@ function wpbase_widgets_init()
 			'after_title'   => '</h2>',
 		)
 	);
-
-	register_sidebar(
-		array(
-			'name'          => esc_html__('Popup Modal', 'wpbase'),
-			'id'            => 'popup-modal',
-			'description'   => esc_html__('Add content here to activate a popup-modal on frontpage.', 'wpbase'),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
-
-	register_sidebar(
-		array(
-			'name'          => esc_html__('Toast Notification', 'wpbase'),
-			'id'            => 'toast-notification',
-			'description'   => esc_html__('Add content here to activate a toast-notification on frontpage.', 'wpbase'),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
 }
 add_action('widgets_init', 'wpbase_widgets_init');
 
@@ -244,25 +220,42 @@ require get_template_directory() . '/inc/customizer.php';
 /**
  * wpbas3 functions
  */
+// completed
 require get_template_directory() . '/functions-wpbas3.php';
+require get_template_directory() . '/inc/wpbase-reset_wp.php';
 
-require get_template_directory() . '/inc/wpbase-clearwordpress.php';
+// need_styling
+// require get_template_directory() . '/inc/wpbase-bs5_toast.php';
+// require get_template_directory() . '/inc/wpbase-bs5_modal_popup.php';
 
-require get_template_directory() . '/inc/wpbase-contactform.php';
-
-require get_template_directory() . '/inc/wpbase-widgets.php';
-
-// require get_template_directory() . '/inc/wpbase-sendmail.php';
-
-require get_template_directory() . '/inc/wpbase-hooks.php';
-
-require get_template_directory() . '/inc/wpbase-optionspage.php';
-
-require get_template_directory() . '/inc/wpbase-api_helper.php';
-
+// in_progress
+require get_template_directory() . '/inc/wpbase-shortcodes.php';
+// require get_template_directory() . '/inc/wpbase-contactform.php'; // for:contact_us
 
 /**
  * yayasan_functions
  */
 require get_template_directory() . '/functions-yayasan.php';
+/**
+ * @todo
+ * 
+ * // migrate: ACF
+ * // PageBanner; page_banner, image_url; post_type = post,page,people,programme
+ * 
+ * // styling
+ * // display__signature_programme - yayasan_programmes_card
+ * 
+ * // shortcodes
+ */
 
+ // migrate: replace webform
+
+ // webform - backup
+ // webform - renew fields
+ // webform - test datatables
+
+ // single - http://localhost/yayasan/yayasan-petronas-introduces-bold-programme-for-underprivileged-literacy-challenged-students/
+
+ // category - http://localhost/yayasan/category/press-release/page/2/
+
+ // search - http://localhost/yayasan/?s=press

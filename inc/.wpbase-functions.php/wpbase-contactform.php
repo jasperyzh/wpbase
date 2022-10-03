@@ -434,6 +434,7 @@ function wpbaseform_options_page_html()
         // foreach ($result[0] as $key => $lead) {
         //     print_r($key);
         // }
+        if (!empty($result)):
         ?>
         <table id="datatables_table" class="display">
             <thead>
@@ -493,6 +494,9 @@ function wpbaseform_options_page_html()
                 padding: 0 24px 0 8px;
             }
         </style>
+        <?php else: ?>
+            <p>No result or submissions. Submit one to try again.</p>
+        <?php endif; ?>
     </div>
 <?php
 }

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * creating option page, using ajax to pull items from other website
+ */
 $optionspage_url = WP_PLUGIN_URL . "/inc/wpbase-optionspage.php";
 $optionspage_theme_url = get_stylesheet_directory_uri() . "/inc/wpbase-optionspage.php";
 $options = [];

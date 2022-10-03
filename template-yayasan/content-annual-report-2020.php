@@ -8,7 +8,9 @@ $upload_dir = wp_upload_dir()['baseurl'];
         <div class="container" data-v-bd082d9a>
             <div class="row justify-content-center" data-v-bd082d9a>
                 <div class="col-auto d-flex align-items-center" data-v-bd082d9a>
-                    <img alt="Yayasan PETRONAS logo" src="<?= $upload_dir ?>/content_annual_report_2020/logo.5874414.png" width="180" class="d-inline-block px-3 border-right" data-v-bd082d9a />
+                    <a href="<?= get_site_url() ?>">
+                        <img alt="Yayasan PETRONAS logo" src="<?= $upload_dir ?>/content_annual_report_2020/logo.5874414.png" width="180" class="d-inline-block px-3 border-right" data-v-bd082d9a />
+                    </a>
                     <h1 class="d-inline-block m-0 px-3 text-dark" data-v-bd082d9a>
                         Annual Report
                         <span class="text-primary" data-v-bd082d9a>2020</span>

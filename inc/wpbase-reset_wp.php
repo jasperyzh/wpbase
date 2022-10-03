@@ -144,23 +144,23 @@ add_filter('the_generator', '__return_null');
 // add following rewrite rules to .htaccess
 // RewriteRule ^new-login$ wp-login.php
 // new-login will be the URL to login to wp-admin
-function wpbase_wp_login_filter($url, $path, $orig_scheme)
+/* function wpbase_wp_login_filter($url, $path, $orig_scheme)
 {
     $old = ["/(wp-login\.php)/"];
 
     $new = ["new-login"];
 
     return preg_replace($old, $new, $url, 1);
-}
+} */
 // add_filter("site_url", "wpbase_wp_login_filter", 10, 3);
 
-function wpbase_wp_login_redirect()
+/* function wpbase_wp_login_redirect()
 {
     if (strpos($_SERVER["REQUEST_URI"], "new-login") === false) {
         wp_redirect(site_url());
         exit();
     }
-}
+} */
 // add_action("login_init", "wpbase_wp_login_redirect");
 
 // add custom .htaccess rules for locking down wp-admin
@@ -203,14 +203,14 @@ require valid-user
  * 
  * all functions located in /wp-includes/capabilities.php
  */
-function check_user_capabilities()
+/* function check_user_capabilities()
 {
     user_can($user, $capability);
 
     current_user_can($capability);
 
     current_user_can_for_blog($capability); // for multisite_network
-}
+} */
 
 
 // escape custom_sql_statements
@@ -268,4 +268,72 @@ function check_user_capabilities()
  * wp_nonce_field($action = -1, $name = "_wpnonce", $referer = true, $echo = true);
  * 
  * check_ajax_referer($action = -1, $query_arg = false, $die = true);
+ */
+
+
+/**
+ * wpbase_optimization
+ * 
+ */
+
+// optimization
+// generally refers to getting app/scripts to run as fast as possible
+
+// scaling
+// building an app that can handle more stuff
+
+// scalability
+// subjective measure of how well code and app handles more and bigger stuff
+
+// origin
+// refers to wordpress application, which is the source of all of the data coming out of your app
+
+// edge
+// refers to services outside of wordpress application, further from the origin but potentially closer to users (CDNs)
+
+// Varnish, sound like CDN, serving static-files
+
+
+// testing
+// what to test?
+/**
+ * 1. test a static page as benchmark
+ * 
+ * 2. test pages wit all outside page caches and accelerators turned off
+ * 
+ * 3. test pages with all outside page caches and accelerators turned on
+ * 
+ * 4. test prototypical pages - kind of page users are most likely to interact with
+ * 
+ * 5. test atypical pages
+ * 
+ * 6. test URLs in groups - tools like Siege and Blitz.io allows to specify a list of URLs. get a better idea what kind of traffic the site can handle
+ * 
+ * 7. test URLs by themselves
+ * 
+ * 8. test app from locations outside your webserver
+ * 
+ * 9. test app from inside your webserver
+ * 
+ * // check Chrome Devtool
+ * 
+ * Tool: Apache Bench
+ * // yum install httpd-tools
+ * // apt-get install apache2-utils
+ * 
+ * // ab -n 1000 -c 100 http://yourdomain.com/index.php
+ * 
+ * graphing apace bench results with gnuplot
+ * 
+ * Tool: Siege
+ * - like apache benchmark, hit site with multiple simultaneous connection and record response times
+ * 
+ * http://www.joedog.org/siege-home/
+ * 
+ * // siege -b -c100 -d20 -t2M http://yourdomain.com
+ * 
+ * Tool: Blitz.io (discontinued)
+ * - web server for running benchmarks against your websites and webapps
+ * 
+ * Tool: W3 Total Cache
  */
