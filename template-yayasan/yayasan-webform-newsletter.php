@@ -1,0 +1,2 @@
+<?php
+// webform_newsletter

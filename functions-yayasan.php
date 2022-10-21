@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @require_plugins
+ * - cmb2
+ * - 
+ */
 // yayasan_define
 if (!defined('UPLOAD_DIR_YAYASAN')) {
     define('YAYASAN_VERSION', '1.1.0');
@@ -8,8 +13,13 @@ if (!defined('UPLOAD_DIR_YAYASAN')) {
 
 require get_template_directory() . '/template-yayasan/yayasan-cpt.php';
 
+require get_template_directory() . '/template-yayasan/yayasan-cmb2.php';
+$yayasan_cmb2 = new YayasanCmb2();
+$yayasan_cmb2->register();
+
 require get_template_directory() . '/template-yayasan/yayasan-legacy-shortcodes.php';
 
+require get_template_directory() . '/template-yayasan/yayasan-webform.php';
 
 // yayasan_customize
 remove_action('wpbase_do_header', 'wpbase_do_header');
@@ -58,8 +68,10 @@ function yayasan_do_sidebar()
 
 function single_people_classes_layout($classes)
 {
-    if (is_front_page() || get_post_type() === "people") {
+    if (is_front_page()) {
         $classes[] = 'layout_full_width_content';
+    } else if (get_post_type() === "people" || get_post_type() === "program") {
+        $classes[] = 'layout_content';
     } else if (is_single()) {
         $classes[] = 'layout_content_sidebar';
     }

@@ -24,9 +24,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
 
-// yayasan
-
 $primary: #00a19c;
+$secondary: #00635b;
+$light: #f8f9fa;
 $body-color: #222;
 $link-decoration: none;
 // $link-shade-percentage:                   20% !default;
@@ -52,24 +52,74 @@ $display-font-weight: 800 !default;
 
 // $nav-link-padding-x: 1.5rem;
 $navbar-nav-link-padding-x: 0.75rem;
+$btn-link-color: #fff;
 
-// wpbas3
+// $accordion-padding-y:                     1rem !default;
+// $accordion-padding-x:                     1.25rem !default;
+$accordion-color: $light;
+// $accordion-bg:                            $body-bg !default;
+// $accordion-border-width:                  $border-width !default;
+// $accordion-border-color:                  var(--#{$prefix}border-color) !default;
+// $accordion-border-radius:                 $border-radius !default;
+// $accordion-inner-border-radius:           subtract($accordion-border-radius, $accordion-border-width) !default;
+
+// $accordion-body-padding-y:                $accordion-padding-y !default;
+// $accordion-body-padding-x:                $accordion-padding-x !default;
+
+// $accordion-button-padding-y:              $accordion-padding-y !default;
+// $accordion-button-padding-x:              $accordion-padding-x !default;
+$accordion-button-color: $light;
+$accordion-button-bg: $primary;
+// $accordion-transition:                    $btn-transition, border-radius .15s ease !default;
+$accordion-button-active-bg: $secondary;
+// $accordion-button-active-bg:              $primary;
+$accordion-button-active-color: $light;
+
+// $accordion-button-focus-border-color:     $input-focus-border-color !default;
+// $accordion-button-focus-box-shadow:       $btn-focus-box-shadow !default;
+
+// $accordion-icon-width:                    1.25rem !default;
+// $accordion-icon-color:                    $accordion-button-color !default;
+// $accordion-icon-active-color:             $accordion-button-active-color !default;
+// $accordion-icon-transition:               transform .2s ease-in-out !default;
+// $accordion-icon-transform:                rotate(-180deg) !default;
+
+// $accordion-button-icon:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+// $accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+
 @import "bootstrap/scss/bootstrap";
 
-@import "bootstrap-icons/font/bootstrap-icons.css";
+// @import "bootstrap-icons/font/bootstrap-icons.css";
+@import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css";
 
-// @import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css";
+@import "./_wp_utilities.scss";
 
-@import "./_s-utilities.scss";
-
-:root {
-	--bg-white: #fff;
-}
+@import "./_default/components/media/_galleries.scss";
 
 img {
 	max-width: 100%;
 	height: auto;
 }
+
+.btn-primary {
+	--bs-btn-color: #fff;
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+} */
 
 // _s override
 .site-title,
@@ -123,7 +173,7 @@ body .site {
 	.site-header {
 		position: fixed;
 		width: 100%;
-		background-color: var(--bg-white);
+		background-color: var(--bs-body-bg);
 		z-index: 10;
 	}
 	.site-header + * {
@@ -240,7 +290,7 @@ body.admin-bar {
 }
 
 // search -card
-.card {
+/* .card {
 	img {
 		aspect-ratio: 4/3;
 		object-fit: cover;
@@ -249,7 +299,7 @@ body.admin-bar {
 		width: 100%;
 		height: 100%;
 	}
-}
+} */
 
 // sidebar
 #secondary.widget-area {
@@ -346,6 +396,33 @@ header.entry-header {
 	margin-top: 3rem;
 	margin-bottom: 3rem;
 }
+.entry-content {
+	& > h1,
+	& > h2,
+	& > h3,
+	& > h4,
+	& > h5,
+	& > h6 {
+		margin-top: 2rem;
+		margin-bottom: 1.5rem;
+	}
+	& > p {
+		line-height: 1.8;
+	}
+	& > ol,
+	& > ul {
+		line-height: 1.6;
+	}
+	& > ol > li,
+	& > ul > li {
+		padding-left: 1rem;
+		margin-bottom: 0.5rem;
+	}
+	& > .wp-block-image.alignwide {
+		margin-top: 3rem;
+		margin-bottom: 3rem;
+	}
+}
 // stylize entry-header
 /* margin-top: -3rem;
     background: white;
@@ -377,3 +454,103 @@ h1.entry-title {
 		margin-inline: auto;
 	}
 } */
+
+// cards
+.card.card__signature-programme {
+	max-width: 42rem;
+	margin: 2rem auto;
+	border-radius: 0;
+	border: 0;
+	border-left: 8px solid var(--bs-primary);
+	padding-left: 2.5rem;
+
+	.card-title {
+		font-style: italic;
+	}
+	.card-body > *:first-child {
+		margin-top: 0;
+	}
+	.card-body > *:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.card.card__bot {
+	&.text-bg-primary * {
+		color: #fff;
+		line-height: 1.4;
+	}
+	&.text-bg-primary.working-committee {
+		background-color: #58478d !important;
+	}
+	.card-text {
+		font-size: 0.9rem;
+	}
+}
+
+.card.card__bot .card.card__bot
+// entry
+
+// .wp-block-separator
+.wp-block-separator {
+	border-bottom: 0;
+}
+
+// .wp-block-image.alignwide
+.wp-block-image.alignwide figcaption {
+	text-align: center;
+}
+
+// wp-block-gallery
+.gallery__logo figure.wp-block-image {
+	aspect-ratio: 1/1;
+}
+
+.gallery__logo figure.wp-block-image img {
+	max-width: 140px !important;
+}
+
+// nav_primary
+.nav-item.current-menu-item > .nav-link {
+	color: var(--bs-primary);
+}
+
+// tables
+table {
+	--#{$prefix}table-color: #{$table-color};
+	--#{$prefix}table-bg: #{$table-bg};
+	--#{$prefix}table-border-color: #{$table-border-color};
+	--#{$prefix}table-accent-bg: #{$table-accent-bg};
+	--#{$prefix}table-striped-color: #{$table-striped-color};
+	--#{$prefix}table-striped-bg: #{$table-striped-bg};
+	--#{$prefix}table-active-color: #{$table-active-color};
+	--#{$prefix}table-active-bg: #{$table-active-bg};
+	--#{$prefix}table-hover-color: #{$table-hover-color};
+	--#{$prefix}table-hover-bg: #{$table-hover-bg};
+
+	width: 100%;
+	margin-bottom: $spacer;
+	color: var(--#{$prefix}table-color);
+	vertical-align: $table-cell-vertical-align;
+	border-color: var(--#{$prefix}table-border-color);
+
+	// Target th & td
+	// We need the child combinator to prevent styles leaking to nested tables which doesn't have a `.table` class.
+	// We use the universal selectors here to simplify the selector (else we would need 6 different selectors).
+	// Another advantage is that this generates less code and makes the selector less specific making it easier to override.
+	// stylelint-disable-next-line selector-max-universal
+	> :not(caption) > * > * {
+		padding: $table-cell-padding-y $table-cell-padding-x;
+		background-color: var(--#{$prefix}table-bg);
+		border-bottom-width: $table-border-width;
+		box-shadow: inset 0 0 0 9999px var(--#{$prefix}table-accent-bg);
+	}
+
+	> tbody {
+		vertical-align: inherit;
+	}
+
+	> thead {
+		vertical-align: bottom;
+	}
+}

@@ -1,11 +1,31 @@
-<form class="container needs-validation form__contact" method="post" novalidate="novalidate">
-    <input type="hidden" name="autoresponder" value="1">
-    <div class="row form-group">
-        <div class="col-4 label__box">
-            <label for="contact__areaofinterest">Area of Interest</label>
-        </div>
-        <div class="col-8 input__box">
-            <select class="form-control contact__areaofinterest" id="contact__areaofinterest" name="contact__areaofinterest">
+<?php
+/* Array
+(
+    [area_of_interest] => blog
+    [fullname] => test
+    [email] => testfishermen@email.com
+    [phone] => 0135553333
+    [state] => terengganu
+    [subject] => donation
+    [focus] => environment
+    [message] => 123123 (max_length: 500)
+    [form_id] => contact-us
+) */
+if (WP_DEBUG) {
+    echo "<pre>WPDEBUG_ON<br>";
+    var_dump($_POST);
+    echo "</pre>";
+}
+?>
+<form id="contact-us" class="contact-us" method="post" action="./">
+
+    <div class="row mb-2">
+        <label class="col-sm-3 col-form-label" for="area_of_interest">
+            Area of Interest
+        </label>
+        <div class="col-auto flex-fill">
+            <select class="form-select" id="area_of_interest" name="area_of_interest" required>
+                <option selected disabled value>-- Select Area of Interest --</option>
                 <option value="volunteer">Volunteer</option>
                 <option value="newsletter">Newsletter</option>
                 <option value="annual_report">Annual Report</option>
@@ -15,43 +35,40 @@
         </div>
     </div>
 
-    <div class="row form-group">
-        <div class="col-4 label__box">
-            <label for="contact__fullname">Full Name *</label>
-        </div>
-        <div class="col-8 input__box">
-            <input type="text" class="form-control contact__fullname" id="contact__fullname" name="contact__fullname" placeholder="e.g. John Smith">
-            <label class="d-none"></label>
-        </div>
-    </div>
-
-    <div class="row form-group">
-        <div class="col-4 label__box">
-            <label for="contact__email">Email *</label>
-        </div>
-        <div class="col-8 input__box">
-            <input type="email" class="form-control contact__email" id="contact__email" name="contact__email" placeholder="e.g. john@email.com">
-            <label class="d-none"></label>
+    <div class="row mb-2">
+        <label class="col-sm-3 col-form-label" for="fullname">
+            Full name <span class="text-danger">*</span>
+        </label>
+        <div class="col-auto flex-fill">
+            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="e.g. John Smith" required>
         </div>
     </div>
 
-    <div class="row form-group">
-        <div class="col-4 label__box">
-            <label for="contact__mobile">Mobile Phone</label>
-        </div>
-        <div class="col-8 input__box">
-            <input type="text" class="form-control contact__mobile" id="contact__mobile" name="contact__mobile" placeholder="e.g. 010-1234567">
-            <label class="d-none"></label>
+    <div class="row mb-2">
+        <label class="col-sm-3 col-form-label" for="email">
+            Email <span class="text-danger">*</span>
+        </label>
+        <div class="col-auto flex-fill">
+            <input type="email" class="form-control" id="email" name="email" placeholder="e.g. john.smith@email.com" required>
         </div>
     </div>
 
-    <div class="row form-group">
-        <div class="col-4 label__box">
-            <label for="contact__state">Address (State/Town) *</label>
+    <div class="row mb-2">
+        <label class="col-sm-3 col-form-label" for="phone">
+            Mobile Phone <span class="text-danger">*</span>
+        </label>
+        <div class="col-auto flex-fill">
+            <input type="text" class="form-control" id="phone" name="phone" placeholder="e.g. 010-1234567" required>
         </div>
-        <div class="col-8 input__box">
-            <select class="form-control contact__state" id="contact__state" name="contact__state">
-                <option disabled="" selected="" value=""> -- Select a State --</option>
+    </div>
+
+    <div class="row mb-2">
+        <label class="col-sm-3 col-form-label" for="state">
+            Address (State/Town) <span class="text-danger">*</span>
+        </label>
+        <div class="col-auto flex-fill">
+            <select class="form-select" id="state" name="state" required>
+                <option selected disabled value>-- Select a State --</option>
                 <option value="johor">Johor</option>
                 <option value="kedah">Kedah</option>
                 <option value="kelantan">Kelantan</option>
@@ -66,18 +83,20 @@
                 <option value="selangor">Selangor</option>
                 <option value="terengganu">Terengganu</option>
                 <option value="kuala-lumpur">W.P. Kuala Lumpur</option>
-                <option value="all-states">All States</option>
+                <option value="labuan">Labuan</option>
+                <option value="putrajaya">Putrajaya</option>
+                <option value="none">None</option>
             </select>
-            <label class="d-none"></label>
         </div>
     </div>
 
-    <div class="row form-group">
-        <div class="col-4 label__box">
-            <label for="contact__subject">Enquiry Subject *</label>
-        </div>
-        <div class="col-8 input__box">
-            <select class="form-control contact__subject" id="contact__subject" name="contact__subject">
+    <div class="row mb-2">
+        <label class="col-sm-3 col-form-label" for="subject">
+            Enquiry Subject <span class="text-danger">*</span>
+        </label>
+        <div class="col-auto flex-fill">
+            <select class="form-select" id="subject" name="subject" required>
+                <option selected disabled value>-- Select a Subject --</option>
                 <option value="collaboration">Collaboration</option>
                 <option value="programs">Programs</option>
                 <option value="donation">Donation</option>
@@ -86,12 +105,13 @@
         </div>
     </div>
 
-    <div class="row form-group">
-        <div class="col-4 label__box">
-            <label for="contact__focus">Area of Interest: Focus</label>
-        </div>
-        <div class="col-8 input__box">
-            <select class="form-control contact__focus" id="contact__focus" name="contact__focus">
+    <div class="row mb-2">
+        <label class="col-sm-3 col-form-label" for="focus">
+            Area of Interest's Focus <span class="text-danger">*</span>
+        </label>
+        <div class="col-auto flex-fill">
+            <select class="form-select" id="focus" name="focus" required>
+                <option selected disabled value>-- Select the Focus --</option>
                 <option value="education">Education</option>
                 <option value="community">Community Well-being &amp; Development</option>
                 <option value="environment">Environment</option>
@@ -99,44 +119,56 @@
         </div>
     </div>
 
-    <div class="row form-group">
-        <div class="col-4 label__box">
-            <label for="contact__message">Message</label>
-        </div>
-        <div class="col-12 input__box" style="padding: 0;">
-            <textarea class="form-control contact__message" id="contact__message" name="contact__message" rows="4" placeholder="Please leave your message here..." maxlength="500"></textarea>
-        </div>
-        <span id="remain">500 Characters</span>
-    </div>
-
-    <div class="row form-group">
-        <p style="margin-left: 0;">I agree to the following</p>
-        <div class="col-12">
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input contact__ppd" id="contact__ppd" name="contact__ppd">
-                <label class="form-check-label" for="contact__ppd">Personal Data Protection Act (PDPA) - Permission to
-                    collect data*</label>
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input contact__update" id="contact__update" name="contact__update">
-                <label class="form-check-label" for="contact__update">Receive Updates from Yayasan PETRONAS</label>
-            </div>
-        </div>
-        <div class="col-12">
-
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input contact__info" id="contact__info" name="contact__info">
-                <label class="form-check-label" for="contact__info">The information provided is accurate*</label>
-            </div>
+    <div class="row mb-2">
+        <label class="col-sm-3 col-form-label" for="message">
+            Message <span class="text-danger">*</span>
+        </label>
+        <div class="col-auto flex-fill">
+            <textarea class="form-control" id="message" name="message" rows="4" placeholder="Please leave your message here..." maxlength="500" aria-describedby="messageHelp"></textarea>
+            <div id="messageHelp" class="form-text text-end">500 Characters</div>
         </div>
     </div>
 
     <div class="row">
-        <button type="submit" class="btn btn-primary contact__submit" disabled="disabled">Submit</button>
+        <hr class="offset-sm-3 col-auto flex-fill">
     </div>
-    <div class="row">
-        <span class="output"></span>
+    <div class="row mb-2">
+        <label class="col-sm-3 col-form-label">
+            I agree to the following:
+        </label>
+        <div class="col-auto flex-fill">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="pdpa" required>
+                <label class="form-check-label" for="pdpa">
+                    Personal Data Protection Act (PDPA) - Permission to collect data <span class="text-danger">*</span>
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="update">
+                <label class="form-check-label" for="update">
+                    Receive Updates from Yayasan PETRONAS
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="accurate_info" required>
+                <label class="form-check-label" for="accurate_info">
+                    The information provided is accurate <span class="text-danger">*</span>
+                </label>
+            </div>
+            <input type="hidden" name="form_id" value="contact-us">
+            <button type="submit" class="btn btn-primary my-3">Submit</button>
+        </div>
     </div>
 </form>
+
+<style>
+    form .form-check-label {
+        font-size: 0.9rem;
+    }
+
+    @media (min-width: 768px) {
+        .contact-us label.col-sm-3 {
+            text-align: right;
+        }
+    }
+</style>

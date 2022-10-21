@@ -33,6 +33,7 @@ add_action('admin_enqueue_scripts', 'wpbaseform_enqueue_admin_script');
 /**
  * create table
  */
+
 function wpbaseform_create_table()
 {
     // make sure table exist

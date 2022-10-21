@@ -28,23 +28,6 @@
                     // 'link_class'   => 'nav-link menu-item'
                     //  nav-active
                 ]);
-                // <ul class="nav flex-column">
-                //     <li class="nav-item mb-2">
-                //         <a href="#" class="nav-link p-0">PETRONAS</a>
-                //     </li>
-                //     <li class="nav-item mb-2">
-                //         <a href="#" class="nav-link p-0">PETRONAS Education Sponsorship Programme (PESP)</a>
-                //     </li>
-                //     <li class="nav-item mb-2">
-                //         <a href="#" class="nav-link p-0">Galeri PETRONAS</a>
-                //     </li>
-                //     <li class="nav-item mb-2">
-                //         <a href="#" class="nav-link p-0">PETROSAINS</a>
-                //     </li>
-                //     <li class="nav-item mb-2">
-                //         <a href="#" class="nav-link p-0">Malaysian Philharmonic Orchestra</a>
-                //     </li>
-                // </ul>
                 ?>
             </div>
 
@@ -71,7 +54,23 @@
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-2 py-3">
                 <div class="col order-lg-2">
-                    <ul class="nav justify-content-center justify-content-lg-end my-2">
+
+                    <?php
+                    wp_nav_menu([
+                        'theme_location'  => 'footer',
+                        'menu_id'        => 'footer-menu',
+                        'menu_class'      => 'nav menu__footer justify-content-lg-end my-2',
+                        'container'         => "",
+                        'items_wrap'      => '<nav id="footer-menu" class="%2$s">%3$s</nav>',
+                        'fallback_cb'     => false,
+                        // custom parameter added thru functions-wpbas3.php
+                        'list_item_class'  => 'nav-item mx-2 mb-2',
+                        // 'link_class'   => 'nav-link menu-item'
+                        //  nav-active
+                    ]);
+                    ?>
+
+                   <!--  <ul class="nav justify-content-center justify-content-lg-end my-2">
                         <li class="nav-item mx-2">
                             <a href="#" class="nav-link p-0">Sitemap</a>
                         </li>
@@ -84,7 +83,7 @@
                         <li class="nav-item mx-2">
                             <a href="#" class="nav-link p-0">Privacy Policy</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
                 <div class="col order-lg-1">
                     <p class="my-2">© 2022 Yayasan PETRONAS · All rights reserved.</p>

@@ -1,5 +1,7 @@
 <?php
 
+require get_template_directory() . '/inc/wpbase-disable_comment.php';
+
 add_action('wp_enqueue_scripts', 'wp_enqueue');
 add_action('wpbase_do_header', 'wpbase_do_header');
 add_action('wpbase_do_footer', 'wpbase_do_footer');
