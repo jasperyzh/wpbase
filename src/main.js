@@ -3,6 +3,10 @@
 
 import * as bootstrap from "bootstrap";
 
+import "./assets/bg-aside.jpg";
+import "./assets/bg-yayasan_dots1.png";
+import "./assets/bg-yayasan_dots2.png";
+
 import "./sass/style.scss";
 
 // _s-js

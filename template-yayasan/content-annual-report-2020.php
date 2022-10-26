@@ -1,15 +1,10 @@
-<?php
-$upload_dir = wp_upload_dir()['baseurl'];
-// echo $upload_dir['baseurl'];
-?>
-
 <div class="site-container" data-v-bd082d9a>
     <header class="header pt-4 bg-white" data-v-bd082d9a>
         <div class="container" data-v-bd082d9a>
             <div class="row justify-content-center" data-v-bd082d9a>
                 <div class="col-auto d-flex align-items-center" data-v-bd082d9a>
                     <a href="<?= get_site_url() ?>">
-                        <img alt="Yayasan PETRONAS logo" src="<?= $upload_dir ?>/content_annual_report_2020/logo.5874414.png" width="180" class="d-inline-block px-3 border-right" data-v-bd082d9a />
+                        <img alt="Yayasan PETRONAS logo" src="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/logo.5874414.png" width="180" class="d-inline-block px-3 border-right" data-v-bd082d9a />
                     </a>
                     <h1 class="d-inline-block m-0 px-3 text-dark" data-v-bd082d9a>
                         Annual Report
@@ -47,7 +42,7 @@ $upload_dir = wp_upload_dir()['baseurl'];
                                 driven. A spark… it is all that’s needed to ignite new
                                 futures.
                             </p>
-                            <a href="<?= $upload_dir ?>/pdf/yayasan_petronas-annual_report_2020.pdf" role="button" target="_blank" download class="btn btn-primary btn-lg" style="margin-bottom: -3rem" data-v-bd082d9a>Download Annual Report 2020</a>
+                            <a href="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/pdf/yayasan_petronas-annual_report_2020.pdf" role="button" target="_blank" download class="btn btn-primary btn-lg" style="margin-bottom: -3rem" data-v-bd082d9a>Download Annual Report 2020</a>
                         </div>
                     </div>
                 </div>
@@ -92,12 +87,12 @@ $upload_dir = wp_upload_dir()['baseurl'];
                                             choral speaking competitions. We engage students,
                                             teachers and the community.
                                         </p>
-                                        <a href="<?= $upload_dir ?>/pdf/yayasan_petronas-annual_report_2020.pdf#page=17" target="_blank" class="btn btn-primary" data-v-bd082d9a>Read More</a>
+                                        <a href="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/pdf/yayasan_petronas-annual_report_2020.pdf#page=17" target="_blank" class="btn btn-primary" data-v-bd082d9a>Read More</a>
                                     </div>
                                 </div>
                                 <div class="col-md-5 order-1 order-md-2" data-v-bd082d9a>
                                     <figure class="card-figure m-0" data-v-bd082d9a>
-                                        <img width="280" src="<?= $upload_dir ?>/content_annual_report_2020/featured-education.d4379eb.jpg" alt="Education" class="card-img" data-v-bd082d9a />
+                                        <img width="280" src="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/featured-education.d4379eb.jpg" alt="Education" class="card-img" data-v-bd082d9a />
                                     </figure>
                                 </div>
                             </div>
@@ -119,12 +114,12 @@ $upload_dir = wp_upload_dir()['baseurl'];
                                             necessities such as access to clean water, where
                                             it is needed.
                                         </p>
-                                        <a href="<?= $upload_dir ?>/pdf/yayasan_petronas-annual_report_2020.pdf#page=25" target="_blank" class="btn btn-primary" data-v-bd082d9a>Read More</a>
+                                        <a href="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/pdf/yayasan_petronas-annual_report_2020.pdf#page=25" target="_blank" class="btn btn-primary" data-v-bd082d9a>Read More</a>
                                     </div>
                                 </div>
                                 <div class="col-md-5 order-1 order-md-2" data-v-bd082d9a>
                                     <figure class="card-figure m-0" data-v-bd082d9a>
-                                        <img width="280" src="<?= $upload_dir ?>/content_annual_report_2020/featured-community.178930e.jpg" alt="Community Well-being and Development" class="card-img" data-v-bd082d9a />
+                                        <img width="280" src="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/featured-community.178930e.jpg" alt="Community Well-being and Development" class="card-img" data-v-bd082d9a />
                                     </figure>
                                 </div>
                             </div>
@@ -145,12 +140,12 @@ $upload_dir = wp_upload_dir()['baseurl'];
                                             protect Malaysia’s rich biodiversity and
                                             environmental heritage.
                                         </p>
-                                        <a href="<?= $upload_dir ?>/pdf/yayasan_petronas-annual_report_2020.pdf#page=41" target="_blank" class="btn btn-primary" data-v-bd082d9a>Read More</a>
+                                        <a href="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/pdf/yayasan_petronas-annual_report_2020.pdf#page=41" target="_blank" class="btn btn-primary" data-v-bd082d9a>Read More</a>
                                     </div>
                                 </div>
                                 <div class="col-md-5 order-1 order-md-2" data-v-bd082d9a>
                                     <figure class="card-figure m-0" data-v-bd082d9a>
-                                        <img width="280" src="<?= $upload_dir ?>/content_annual_report_2020/featured-environment.e9242d5.jpg" alt="Environment" class="card-img" data-v-bd082d9a />
+                                        <img width="280" src="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/featured-environment.e9242d5.jpg" alt="Environment" class="card-img" data-v-bd082d9a />
                                     </figure>
                                 </div>
                             </div>
@@ -171,7 +166,7 @@ $upload_dir = wp_upload_dir()['baseurl'];
                 <div class="row justify-content-center" data-v-bd082d9a>
                     <div class="col-lg-auto" data-v-bd082d9a>
                         <figure class="year-review__figure text-center mb-4" data-v-bd082d9a>
-                            <img width="350" src="<?= $upload_dir ?>/content_annual_report_2020/year-review.606da4f.svg" alt="Yayasan PETRONAS Year Review Chart" class="img-fluid" data-v-bd082d9a />
+                            <img width="350" src="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/year-review.606da4f.svg" alt="Yayasan PETRONAS Year Review Chart" class="img-fluid" data-v-bd082d9a />
                         </figure>
                     </div>
                     <div class="col-lg-6 d-flex align-items-center" data-v-bd082d9a>
@@ -216,10 +211,10 @@ $upload_dir = wp_upload_dir()['baseurl'];
                             <span class="d-inline-block" data-v-bd082d9a>Yayasan PETRONAS Annual Report 2020</span>
                         </h1>
                         <p data-v-bd082d9a>
-                            <a href="<?= $upload_dir ?>/pdf/yayasan_petronas-annual_report_2020.pdf" role="button" target="_blank" download class="btn btn-primary btn-lg" data-v-bd082d9a>Download Annual Report 2020</a>
+                            <a href="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/pdf/yayasan_petronas-annual_report_2020.pdf" role="button" target="_blank" download class="btn btn-primary btn-lg" data-v-bd082d9a>Download Annual Report 2020</a>
                         </p>
                         <p data-v-bd082d9a>
-                            <a href="<?= $upload_dir ?>/pdf/Yayasan-Petronas_Annual-Report-2019.pdf" role="button" target="_blank" download class="btn btn-outline-primary" data-v-bd082d9a>Annual Report 2019</a>
+                            <a href="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/pdf/Yayasan-Petronas_Annual-Report-2019.pdf" role="button" target="_blank" download class="btn btn-outline-primary" data-v-bd082d9a>Annual Report 2019</a>
                         </p>
                     </div>
                 </div>
@@ -256,7 +251,7 @@ $upload_dir = wp_upload_dir()['baseurl'];
                 <div class="col-auto order-1 order-lg-2 d-flex justify-content-md-end align-items-end" data-v-bd082d9a>
                     <a href="https://www.yayasanpetronas.com.my/" target="_blank" data-v-bd082d9a>
                         <figure data-v-bd082d9a>
-                            <img alt="Yayasan Petronas Logo" src="<?= $upload_dir ?>/content_annual_report_2020/logo-yayasan-petronas.c034529.png" width="180" class="px-3" data-v-bd082d9a />
+                            <img alt="Yayasan Petronas Logo" src="<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/logo-yayasan-petronas.c034529.png" width="180" class="px-3" data-v-bd082d9a />
                         </figure>
                     </a>
                 </div>
@@ -20069,7 +20064,7 @@ $upload_dir = wp_upload_dir()['baseurl'];
     }
 
     .bg__main[data-v-bd082d9a] {
-        background-image: url(<?= $upload_dir ?>/content_annual_report_2020/bg.444abf4.jpg);
+        background-image: url(<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/bg.444abf4.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50%;
@@ -20092,7 +20087,7 @@ $upload_dir = wp_upload_dir()['baseurl'];
     }
 
     .masthead__bg[data-v-bd082d9a] {
-        background-image: url(<?= $upload_dir ?>/content_annual_report_2020/masthead-mobile.293b6c3.jpg);
+        background-image: url(<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/masthead-mobile.293b6c3.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50%;
@@ -20100,7 +20095,7 @@ $upload_dir = wp_upload_dir()['baseurl'];
 
     @media (min-width: 768px) {
         .masthead__bg[data-v-bd082d9a] {
-            background-image: url(<?= $upload_dir ?>/content_annual_report_2020/masthead-desktop.a0de00f.jpg);
+            background-image: url(<?= UPLOAD_DIR_YAYASAN ?>/annual_report_2020/masthead-desktop.a0de00f.jpg);
         }
     }
 

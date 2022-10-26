@@ -1,5 +1,85 @@
 <?php
 
+add_shortcode('display__posts_listing', 'shortcode__posts_listing');
+function shortcode__posts_listing($atts)
+{
+    ob_start();
+
+    // shortcode attribute
+    $atts = shortcode_atts(
+        array(
+            'posts_per_page' => 3,
+            'category_name' => '',
+            'view_label' => "",
+            'view_all_link' => "#",
+            'post_status' => "publish",
+            'post_type' => "post",
+            'post__in' => "",
+            'hide_date' => 0,
+            'container_id' => ""
+        ),
+        $atts,
+        'display__posts_listing'
+    );
+
+    if (!empty($atts['post__in'])) {
+        $no_whitespaces = sanitize_text_field($atts['post__in']);
+        $atts['post__in'] = explode(',', $no_whitespaces);
+    }
+    if (!empty($atts['post_type'])) {
+        $no_whitespaces = sanitize_text_field($atts['post_type']);
+        $atts['post_type'] = explode(',', $no_whitespaces);
+    }
+
+    $posts = new \WP_query(array(
+        'post_status ' => $atts['post_status'],
+        'post_type' => $atts['post_type'],
+        'orderby' => 'date title',
+        'order' => 'DESC',
+        'posts_per_page' => $atts['posts_per_page'],
+        'category_name' => $atts['category_name'],
+        'post__in' => $atts['post__in'],
+    ));
+    if ($posts->have_posts()) :
+?>
+        <!-- id="" -->
+        <div class="container-fluid" id="<?= (!empty($atts['container_id']) ? $atts['container_id'] : $posts->query_vars['category_name']) ?>">
+            <div class="row row-cols-1 row-cols-lg-3">
+                <?php
+                while ($posts->have_posts()) :
+                    $posts->the_post();
+                ?>
+                    <div class="col mb-3">
+                        <?php
+                        get_template_part('template-parts/card', 'post', [
+                            "category_name" => $atts['category_name'],
+                            "title" => get_the_title(),
+                            "date" => (!$atts['hide_date']) ? get_the_date() : "",
+                            // "excerpt" => get_the_excerpt(),
+                            "link" => get_permalink()
+                        ]);
+                        ?>
+                    </div>
+                <?php
+                endwhile;
+                ?>
+            </div>
+            <div class="row">
+                <div class="col-auto">
+                    <?php if (!empty($atts['view_label'])) : ?>
+                        <a href="<?= get_site_url() . $atts['view_all_link'] ?>" class="btn btn-outline-primary"><?= $atts['view_label'] ?></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    <?php
+    endif;
+    wp_reset_postdata();
+    return ob_get_clean();
+}
+
+
+
 // http://localhost/yayasan/focus-area/education/
 // http://localhost/yayasan/focus-area/community/
 // http://localhost/yayasan/focus-area/environment/
@@ -113,7 +193,7 @@ function yayasan_about_boards_trustees($atts)
                                 <p class="card-text mb-1"><?= get_post_meta(get_the_ID(), '_people_position', true) ?></p>
                             </div>
                             <div class="card-footer border-0">
-                                <a href="<?= get_the_permalink() ?>"><u><small>Click for Biography</small></u></a>
+                                <a class="text-light" href="<?= get_the_permalink() ?>"><u><small>Click for Biography</small></u></a>
                             </div>
                         </div>
                     </div>

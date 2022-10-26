@@ -1,13 +1,11 @@
-<?php 
+<?php
 
 /* Template Name: Empty Canvas*/
 
-// remove page_banner
-remove_action('wpbase_do_before_content', 'wpbase_do_before_content');
 
 // full_width_layout
 remove_filter('body_class', 'wp_body_classes_layout', 1);
-add_filter('body_class', function($classes){
+add_filter('body_class', function ($classes) {
     $classes[] = 'layout_full_width_content';
     return $classes;
 });
@@ -20,7 +18,9 @@ remove_action('wpbase_do_footer', 'yayasan_do_footer');
 
 get_header();
 
-do_action('wpbase_do_before_content');
+// remove page_banner
+// do_action('wpbase_do_before_content');
+// remove_action('wpbase_do_before_content', 'yayasan_page_banner', 15);
 
 ?>
 
@@ -35,3 +35,4 @@ do_action('wpbase_do_before_content');
 do_action('wpbase_do_after_content');
 
 get_footer();
+

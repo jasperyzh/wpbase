@@ -15,8 +15,7 @@ if ($page_id) {
 
     // default
     if (empty($img_src)) {
-        $upload_dir = wp_upload_dir();
-        $img_src = $upload_dir['baseurl'] . '/yayasan/page_banner_default.jpg';
+        $img_src = UPLOAD_DIR_YAYASAN . '/yayasan-banner-default.jpg';
     }
 }
 ?>

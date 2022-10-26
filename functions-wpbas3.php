@@ -23,15 +23,14 @@ function wp_enqueue()
         'SITE_URL' => get_site_url(),
     ));
 
-    // development
-    $dev_url = "http://localhost:8080";
-    $dev_vendor = $dev_url . '/js/chunk-vendors.js';
-    $dev_js = $dev_url . '/js/app.js';
-    wp_enqueue_script('vue-vendors', $dev_vendor, ['jquery'], WPBASE_VERSION, true);
-    wp_enqueue_script('vue-app', $dev_js, ['jquery'], WPBASE_VERSION, true);
-
     // check if enqueue dev-files
     if (WP_DEBUG) {
+        // development
+        $dev_url = "http://localhost:8080";
+        $dev_vendor = $dev_url . '/js/chunk-vendors.js';
+        $dev_js = $dev_url . '/js/app.js';
+        wp_enqueue_script('vue-vendors', $dev_vendor, ['jquery'], WPBASE_VERSION, true);
+        wp_enqueue_script('vue-app', $dev_js, ['jquery'], WPBASE_VERSION, true);
         return;
     }
     $handle = 'app.js';

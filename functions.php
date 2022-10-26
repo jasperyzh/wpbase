@@ -248,12 +248,6 @@ require get_template_directory() . '/functions-yayasan.php';
  * // shortcodes
  */
 
- // migrate: replace webform
-
- // webform - backup
- // webform - renew fields
- // webform - test datatables
-
  // single - http://localhost/yayasan/yayasan-petronas-introduces-bold-programme-for-underprivileged-literacy-challenged-students/
 
  // category - http://localhost/yayasan/category/press-release/page/2/

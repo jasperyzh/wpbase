@@ -3,7 +3,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 pt-5">
             <div class="col mb-3 col-lg-3">
                 <figure>
-                    <img width="120" src="@/assets/placeholder/placeholder.png" alt="" />
+                    <img width="200" src="<?= UPLOAD_DIR_YAYASAN ?>/yayasan-logo.png" alt="" style="filter:  brightness(0) invert(1);">
                 </figure>
                 <p>
                     Level 71, Tower 1,
@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <div class="bg-primary text-light fullbleed__secondary">
+    <div class="bg-secondary text-light fullbleed__secondary">
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-2 py-3">
                 <div class="col order-lg-2">
@@ -69,21 +69,6 @@
                         //  nav-active
                     ]);
                     ?>
-
-                   <!--  <ul class="nav justify-content-center justify-content-lg-end my-2">
-                        <li class="nav-item mx-2">
-                            <a href="#" class="nav-link p-0">Sitemap</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a href="#" class="nav-link p-0">Risk Policy</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a href="#" class="nav-link p-0">Contribution Policy</a>
-                        </li>
-                        <li class="nav-item mx-2">
-                            <a href="#" class="nav-link p-0">Privacy Policy</a>
-                        </li>
-                    </ul> -->
                 </div>
                 <div class="col order-lg-1">
                     <p class="my-2">© 2022 Yayasan PETRONAS · All rights reserved.</p>
