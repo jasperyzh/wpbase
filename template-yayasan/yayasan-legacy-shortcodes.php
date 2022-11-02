@@ -1,5 +1,15 @@
 <?php
 
+add_shortcode('display__social_icon', 'shortcode__social_icon');
+function shortcode__social_icon()
+{
+    ob_start();
+
+    get_template_part('template-yayasan/display', 'social_icon');
+
+    return ob_get_clean();
+}
+
 add_shortcode('display__posts_listing', 'shortcode__posts_listing');
 function shortcode__posts_listing($atts)
 {

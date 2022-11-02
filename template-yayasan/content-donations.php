@@ -1,12 +1,10 @@
 <!-- yayasan_donations -->
 <section id="donation__intro" class="my-5">
     <div class="container">
-        <div class="row">
-            <h1>Donations</h1>
-        </div>
         <div class="row my-4 justify-content-around align-items-center">
-            <div class="col-12 col-lg-5">
-                <p class="lead">Yayasan PETRONAS welcomes requests for donations (cash and/or in-kind) which aim to make a difference in three key areas.</p>
+            <div class="col-12 col-lg-6">
+                <h1>Donations</h1>
+                <p>Yayasan PETRONAS welcomes requests for donations (cash and/or in-kind) which aim to make a difference in three key areas.</p>
             </div>
             <div class="col-6 col-sm-4 col-lg-2 text-center">
                 <figure>
@@ -40,6 +38,11 @@
                 <figure>
                     <img src="<?= UPLOAD_DIR_YAYASAN ?>/donations-1.jpg" alt="">
                 </figure>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>Eligibility Criteria</h2>
             </div>
         </div>
         <div class="row my-4">
@@ -98,6 +101,11 @@
         </div>
         <ol class="text-bg-primary text-light p-5">
             <div class="row">
+                <div class="col">
+                    <h3>Exclusions List</h3>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-6  px-lg-4">
                     <li>Political organisation and/or society</li>
                     <li>Individuals or individual pursuits</li>
@@ -127,20 +135,18 @@
 
 <section id="donation__ready" class="text-bg-primary py-5">
     <div class="container">
-        <div class="row">
-            <h2 class="display-3">Ready to Apply?</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <p>Please complete your application online and submit all supporting and relevant documents to
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <h2 class="display-4">Ready to Apply?</h2>
+                <p class="mb-2">Please complete your application online and submit all supporting and relevant documents to
                     us.</p>
+                <p class="mb-2">We will contact you within 2 weeks if your application for donation is approved.</p>
+                <p class="mb-2">If you have further enquiries, see if the FAQs address your questions. If not, feel free to
+                    connect with us.</p>
                 <a href="https://yayasanpetronas.sponsor.com/" target="_blank" class="btn btn-light">Apply Now</a>
             </div>
             <div class="col-lg-6">
-                <p>If you have further enquiries, see if the FAQs address your questions. If not, feel free to
-                    connect with us.</p>
-                <p>We will contact you within 2 weeks if your application for donation is approved.</p>
-                <p><i>Klik Di Sini Untuk Bahasa Malaysia</i></p>
+                <!-- <p><i>Klik Di Sini Untuk Bahasa Malaysia</i></p> -->
             </div>
         </div>
     </div>

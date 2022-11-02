@@ -35,6 +35,16 @@ add_filter('body_class', 'single_people_classes_layout');
 add_action('widgets_init', 'yayasan_widgets_init');
 add_action("wpbase_before_sidebar_content", "yayasan_sidebar_contact");
 
+add_action('wpbase_entry_footer', 'yayasan_program_after_content');
+
+function yayasan_program_after_content()
+{
+?>
+    <a class="fw-bold my-4 d-block" href="<?= get_site_url() ?>/the-good-news"><u><i>Discover More</i></u></a>
+<?php
+}
+
+
 function yayasan_page_banner()
 {
     if (!is_front_page()) {
@@ -64,7 +74,7 @@ function yayasan_do_sidebar()
     global $post;
     $slug = (!empty($post)) ? $post->post_name : "";
 
-    if (is_single() && get_post_type() !== "people" || $slug === "contact") {
+    if (is_single() && get_post_type() !== "people" && get_post_type() !== "program" || $slug === "contact") {
         get_sidebar();
     }
 }

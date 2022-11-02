@@ -15,6 +15,25 @@
 <section id="cta-video" class="d-flex align-items-center bg-dark text-light" style="aspect-ratio: 22/7; background: url('<?= UPLOAD_DIR_YAYASAN ?>/frontpage-poster-video.jpg') center no-repeat; background-size: cover">
     <div class="col-md-9 mx-auto">
         <h2 class="display-3 my-4 text-light" style="width: min-content">Where Good Flourishes</h2>
+        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalYoutube" data-video_id="IT_JSMrifZA">
+            Watch Video
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalYoutube" tabindex="-1" aria-labelledby="modalYoutubeLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content bg-transparent border-0">
+                    <div class="modal-header border-0 justify-content-end">
+                        <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1> -->
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <iframe id="modalYoutube__iframe" class="w-100" style="aspect-ratio: 16/9" src="https://www.youtube-nocookie.com/embed/IT_JSMrifZA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -55,7 +74,7 @@
                 <div class="col-md-4 d-flex flex-column align-items-start justify-content-center">
                     <h3 class="h1"><span>Education</span></h3>
                     <p>In order to improve the standard of living for more Malaysians and prepare them to face the challenges of the future, Yayasan PETRONAS delivers several programmes for teachers and students alike.</p>
-                    <a href="#" class="btn px-0 border-0">Find Out More ></a>
+                    <a href="<?= get_site_url() ?>/focus-area/education/" class="btn px-0 border-0">Find Out More ></a>
                 </div>
             </div>
         </div>
@@ -69,7 +88,7 @@
                 <div class="col-md-4 d-flex flex-column align-items-start justify-content-center">
                     <h3 class="h1"><span>Community Well-being & Development</span></h3>
                     <p>We believe that social progress is inclusive and everyone can enjoy a better quality of life. Yayasan PETRONAS delivers several programmes to address a variety of immediate and long term community issues.</p>
-                    <a href="#" class="btn px-0 border-0">Find Out More ></a>
+                    <a href="<?= get_site_url() ?>/focus-area/community/" class="btn px-0 border-0">Find Out More ></a>
                 </div>
             </div>
         </div>
@@ -83,7 +102,7 @@
                 <div class="col-md-4 d-flex flex-column align-items-start justify-content-center">
                     <h3 class="h1"><span>Environment</span></h3>
                     <p>From marine to mangrove, shores to rivers, we want to work to conserve natural resources for the well-being of current and future generations. In restoring the abundant favours from nature, PETRONAS has invested close to RM100 million to restore the lands, the seas and the coasts.</p>
-                    <a href="#" class="btn px-0 border-0">Find Out More ></a>
+                    <a href="<?= get_site_url() ?>/focus-area/environment/" class="btn px-0 border-0">Find Out More ></a>
                 </div>
             </div>
         </div>

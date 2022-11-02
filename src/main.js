@@ -38,3 +38,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+// modal frontpage youtube (hacky)
+const myModalEl = document.getElementById("modalYoutube");
+const modalYoutube__iframe = document.getElementById("modalYoutube__iframe");
+if (modalYoutube__iframe) {
+    myModalEl.addEventListener("hidden.bs.modal", () => {
+        modalYoutube__iframe.src = ``;
+    });
+
+    myModalEl.addEventListener("show.bs.modal", () => {
+        modalYoutube__iframe.src = `https://www.youtube-nocookie.com/embed/IT_JSMrifZA`;
+    });
+}
